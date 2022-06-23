@@ -1,2 +1,2 @@
 # autocorrelator_py
-Python Version of autocorrelator
+Python Version of autocorrelator To evaluate ultrashort pulses
