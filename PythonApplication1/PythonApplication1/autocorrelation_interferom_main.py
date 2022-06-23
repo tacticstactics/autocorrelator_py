@@ -3,7 +3,9 @@
 
 import numpy as np
 
-import autocorrelation_interferom_func
+import autocorrelation_interferom_def
+
+aaa = autocorrelation_interferom_def.proc1(1)
 
 print('Start Main')
 
@@ -33,11 +35,11 @@ for item1 in range(m):
     time1 = item2 * 0.025
     tcol[(item2)] = time1
 
-    Et = exp(1.j * omega * time1) * exp(-(time1)^2/1) + aaa * exp(1.j * omega * t) * exp(-(t-3)^2/1)
+    Et = np.exp(1.j * omega * time1) * (np.exp(-(time1))^2/1) + aaa * np.exp(1.j * omega * time1) * (np.exp(-(time1-3))^2/1)
     Etcol[(item2)] = Et
 
-     td = d
-     Etd = 1
+     #td = d
+     #Etd = 1
 
 
 

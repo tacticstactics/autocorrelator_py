@@ -1,19 +1,8 @@
 
-# autocorrelation_interferom_func.py
-
-
-
-def autocorrelation_interferom_func(aaa):
-
-
- 
  #freq = 10;
  #omega = 2*pi*freq;
 
-
-
  """
- 
  for ii = 1:m,
  d = 0.025*ii-6;
  a = 0;   
