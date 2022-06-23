@@ -2,12 +2,14 @@
 #autocorrelation_interferom_main.py
 
 import numpy as np
+import matplotlib.pyplot as plt
+import math
 
 import autocorrelation_interferom_def
 
 aaa = autocorrelation_interferom_def.proc1(1)
 
-import matplotlib.pyplot as plt
+
 
 
 
@@ -40,6 +42,8 @@ for ii in range(m):
     tcol[(jj)] = time1
 
     Et = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + aaa * np.exp(1.j * omega * time1) * (np.exp(-(time1-3))**2/1)
+    #Et = math.sin(omega * time1)
+
     Etcol[(jj)] = Et
 
      #td = d
@@ -53,6 +57,7 @@ print(tcol)
 print(Etcol)
 
 plt.plot(tcol,Etcol)
+plt.show()
 
 #      print("list1=", item1, ", list2=", item2)
     
