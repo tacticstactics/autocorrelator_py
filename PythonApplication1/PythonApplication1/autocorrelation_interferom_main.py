@@ -7,6 +7,10 @@ import autocorrelation_interferom_def
 
 aaa = autocorrelation_interferom_def.proc1(1)
 
+import matplotlib.pyplot as plt
+
+
+
 print('Start Main')
 
 
@@ -17,7 +21,7 @@ imcol = np.zeros((m,1)) #%
 Etcol = np.zeros((m,1)); # Electric field
 
 
-freq = 10
+freq = 1
 omega = 2*np.pi*freq
  
 print('omega=')
@@ -25,30 +29,30 @@ print(omega)
 
 
 
-for item1 in range(m):
-  for item2 in range(m):
+for ii in range(m):
+  for jj in range(m):
 
-    d = item1 * 0.025
+    #d = ii * 0.025
 
      #print(item1)
      
-    time1 = item2 * 0.025
-    tcol[(item2)] = time1
+    time1 = jj * 0.025
+    tcol[(jj)] = time1
 
-    Et = np.exp(1.j * omega * time1) * (np.exp(-(time1))^2/1) + aaa * np.exp(1.j * omega * time1) * (np.exp(-(time1-3))^2/1)
-    Etcol[(item2)] = Et
+    Et = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + aaa * np.exp(1.j * omega * time1) * (np.exp(-(time1-3))**2/1)
+    Etcol[(jj)] = Et
 
      #td = d
      #Etd = 1
 
-
-
      
 
 
 
-
 print(tcol)
+print(Etcol)
+
+plt.plot(tcol,Etcol)
 
 #      print("list1=", item1, ", list2=", item2)
     
