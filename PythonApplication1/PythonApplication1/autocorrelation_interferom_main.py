@@ -13,11 +13,13 @@ m = 128
 tcol, Etcol = autocorrelation_interferom_def.proc1(param,m)
 
 
+print('')
+print('autocorrelation_interferom_main.py')
+print('')
 
-print('Start Main')
+plt.plot(tcol,np.real(Etcol))
+#plt.plot(tcol,np.imag(Etcol))
 
-
-plt.plot(tcol,Etcol)
 plt.show()
 
 #      print("list1=", item1, ", list2=", item2)
