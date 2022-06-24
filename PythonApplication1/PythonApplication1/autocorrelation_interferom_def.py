@@ -19,7 +19,9 @@ def proc1(param=0.01,m=128):
 
     imcol = np.zeros((m,1)); #% 
 
-    Etcol = np.zeros((m,1)); # Electric field
+    #Etcol = np.zeros((m,1)); # Electric field
+    
+    Etcol = np.ones(m, dtype=complex)*2
 
     freq = 1
     omega = 2*np.pi*freq
@@ -44,14 +46,23 @@ def proc1(param=0.01,m=128):
             time1 = jj * 0.025
             tcol[(jj)] = time1
 
-            Et = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp(-(time1-3))**2/(1**2)
+            Et = np.exp(1j * omega * time1)
+            #Et = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp((-(time1-3))**2/(1**2))
             #Et = math.sin(omega * time1)
+
+            print("Real")
+            print(Et.real)
+            print("Imag")
+            print(Et.imag)
+            
+            #print(type(Et.real))
+            #print(type(Et.imag))
 
             Etcol[(jj)] = Et
 
             td = time1 + delay
 
-            Etd = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp(-(time1-3))**2/(1**2)
+            Etd = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp((-(time1-3))**2/(1**2))
 
             aa = a+np.abs((Et + Etd)**2)**2
             a = aa

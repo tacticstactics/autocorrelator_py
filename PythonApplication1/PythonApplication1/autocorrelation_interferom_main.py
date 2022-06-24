@@ -17,8 +17,14 @@ print('')
 print('autocorrelation_interferom_main.py')
 print('')
 
-plt.plot(tcol,np.real(Etcol))
-#plt.plot(tcol,np.imag(Etcol))
+fig = plt.figure(figsize = (10,6), facecolor='lightblue')
+
+ax1 = fig.add_subplot(2, 2, 1)
+ax2 = fig.add_subplot(2, 2, 2)
+
+ax1.plot(tcol,np.real(Etcol))
+ax2.plot(tcol,np.imag(Etcol))
+
 
 plt.show()
 
