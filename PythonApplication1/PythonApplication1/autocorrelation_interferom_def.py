@@ -31,23 +31,19 @@ def proc1(param=0.01,m=128):
 
     for ii in range(m):
 
-        delay = ii * 0.025-6
+        time1 = 0.025*ii-1.6
         a = 0
         aa = 0
 
+            
+
         for jj in range(m):
 
-
-
-        #print(item1)
-     
-            time1 = 0.025 * jj -1.6
-            tcol[(jj)] = time1
+            tcol[(ii)] = time1
+            Et = np.exp(1j * omega * time1) * np.exp(-1.38 * (time1/tau)**2)
 
             #Et = math.sin(omega * time1)
-            #Et = np.exp(1j * omega * time1)
-            
-            Et = np.exp(1j * omega * time1) * np.exp(-1.38 * (time1/tau)**2)
+            #Et = np.exp(1j * omega * time1)         
             
             
             #print("Complex")
@@ -60,18 +56,22 @@ def proc1(param=0.01,m=128):
             #print(type(Et.real))
             #print(type(Et.imag))
 
-            Etcol[(jj)] = Et
+            Etcol[(ii)] = Et
 
-            td = time1 + delay
+     
+            delay1 = 0.025 * jj -0.08
+            delaycol[(jj)] = delay1
+        
+
+            td = time1 + delay1
 
             #Etd = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp((-(time1-3))**2/(1**2))
-            Etd = math.sin(omega * time1) * math.sin(omega * td)
+            Etd = Et + np.exp(1j * omega * td) * np.exp(-1.38 * (td/tau)**2)
 
-            aa = a+np.abs((Et + Etd)**2)**2
-            a = aa
+            aa = (np.abs(Etd))**2
+           
 
-            imcol[(ii)] = aa
-            delaycol[(ii)] = delay
+            imcol[(jj)] = aa
 
 
     return tcol, Etcol, delaycol, imcol
