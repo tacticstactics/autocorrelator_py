@@ -46,9 +46,10 @@ def proc1(param=0.01,m=128):
             time1 = jj * 0.025
             tcol[(jj)] = time1
 
-            Et = np.exp(1j * omega * time1)
-            #Et = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp((-(time1-3))**2/(1**2))
             #Et = math.sin(omega * time1)
+            #Et = np.exp(1j * omega * time1)
+            Et = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp((-(time1-3))**2/(1**2))
+            
 
             print("Real")
             print(Et.real)
@@ -71,6 +72,6 @@ def proc1(param=0.01,m=128):
             delaycol[(ii)] = delay
 
 
-    return tcol, Etcol
+    return tcol, Etcol, delaycol, imcol
 
 

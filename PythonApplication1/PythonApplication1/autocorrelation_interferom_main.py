@@ -10,7 +10,7 @@ import autocorrelation_interferom_def
 param = 0.01
 m = 128
 
-tcol, Etcol = autocorrelation_interferom_def.proc1(param,m)
+tcol, Etcol, delaycol, imcol = autocorrelation_interferom_def.proc1(param,m)
 
 
 print('')
@@ -23,10 +23,15 @@ ax1 = fig.add_subplot(2, 2, 1)
 ax2 = fig.add_subplot(2, 2, 2)
 
 ax1.plot(tcol,np.real(Etcol))
-ax2.plot(tcol,np.imag(Etcol))
-
+ax2.plot(delaycol,imcol)
 
 plt.show()
+
+#fig2 = plt.figure(figsize = (10,6), facecolor='lightblue')
+#ax3 = fig2.add_subplot(2, 2, 1)
+#ax4 = fig2.add_subplot(2, 2, 2)
+
+#plt.show()
 
 #      print("list1=", item1, ", list2=", item2)
     
