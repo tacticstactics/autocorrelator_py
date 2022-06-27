@@ -10,12 +10,14 @@ import autocorrelation_interferom_def
 param = 0.01
 m = 128
 
-tcol, Etcol, delaycol, imcol = autocorrelation_interferom_def.proc1(param,m)
+tcol, Etcol, delaycol, Etdmtrx, imcol = autocorrelation_interferom_def.proc1(param,m)
 
 
 print('')
 print('autocorrelation_interferom_main.py')
 print('')
+print("Etdmtrx Shape", Etdmtrx.shape)
+
 
 fig = plt.figure(figsize = (10,6), facecolor='lightblue')
 

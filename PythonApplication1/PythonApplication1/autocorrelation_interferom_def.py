@@ -1,4 +1,4 @@
-
+﻿
 
 
 # autocorrelation_interferom_def.py
@@ -19,6 +19,8 @@ def proc1(param=0.01,m=128):
     
     Etcol = np.ones(m, dtype=complex)*2
     imcol = np.zeros((m,1)); #% 
+    
+    Etdmtrx = np.zeros((m,m)); #% 
 
     freq = 100
     omega = 2*np.pi*freq
@@ -67,13 +69,14 @@ def proc1(param=0.01,m=128):
 
             #Etd = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp((-(time1-3))**2/(1**2))
             Etd = Et + np.exp(1j * omega * td) * np.exp(-1.38 * (td/tau)**2)
+            Etdmtrx[(ii),(jj)] = Etd
 
             aa = (np.abs(Etd))**2
            
 
-            imcol[(jj)] = aa
+            imcol[(ii)] = aa
+                        
 
-
-    return tcol, Etcol, delaycol, imcol
+    return tcol, Etcol, delaycol, Etdmtrx, imcol
 
 
