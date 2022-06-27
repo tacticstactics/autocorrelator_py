@@ -5,7 +5,7 @@
 
 import numpy as np
 #import matplotlib.pyplot as plt
-#import math
+import math
 
 
 def proc1(param=0.01,m=128):
@@ -16,19 +16,17 @@ def proc1(param=0.01,m=128):
 
     tcol = np.zeros((m,1)); # time
     delaycol = np.zeros((m,1)); # difference
-
-    imcol = np.zeros((m,1)); #% 
-
-    #Etcol = np.zeros((m,1)); # Electric field
     
     Etcol = np.ones(m, dtype=complex)*2
+    imcol = np.zeros((m,1)); #% 
 
-    freq = 1
+    freq = 100
     omega = 2*np.pi*freq
  
     print('omega=')
     print(omega)
 
+    tau = 0.1
 
 
     for ii in range(m):
@@ -43,18 +41,21 @@ def proc1(param=0.01,m=128):
 
         #print(item1)
      
-            time1 = jj * 0.025
+            time1 = 0.025 * jj -1.6
             tcol[(jj)] = time1
 
             #Et = math.sin(omega * time1)
             #Et = np.exp(1j * omega * time1)
-            Et = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp((-(time1-3))**2/(1**2))
             
-
-            print("Real")
-            print(Et.real)
-            print("Imag")
-            print(Et.imag)
+            Et = np.exp(1j * omega * time1) * np.exp(-1.38 * (time1/tau)**2)
+            
+            
+            #print("Complex")
+            #print(Et)
+            #print("Real")
+            #print(Et.real)
+            #print("Imag")
+            #print(Et.imag)
             
             #print(type(Et.real))
             #print(type(Et.imag))
@@ -63,7 +64,8 @@ def proc1(param=0.01,m=128):
 
             td = time1 + delay
 
-            Etd = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp((-(time1-3))**2/(1**2))
+            #Etd = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp((-(time1-3))**2/(1**2))
+            Etd = math.sin(omega * time1) * math.sin(omega * td)
 
             aa = a+np.abs((Et + Etd)**2)**2
             a = aa
