@@ -1,23 +1,23 @@
 ﻿
 # autocorrelation_interferom_def.py
 
-import math
 import numpy as np
 
 
-def proc1(param=0.01,m=128):
+def proc1(param=0.01,m=256):
 
 
     tcol = np.zeros((m,1)); # time
-    delaycol = np.zeros((m,1)); # delay
     
     Etcol = np.ones(m, dtype=complex)*2
 
-    imcol = np.zeros((m,1)); #% 
-   
-    Etdmtrx = np.ones((m,m), dtype=complex); #% 
+    #Signalcol = np.zeros(m,dtype=complex); #% 
+       
+    Signalcol = np.ones(m, dtype=complex)*2
 
-    freq = 1
+    #Etdmtrx = np.ones((m,m), dtype=complex); #% 
+
+    freq = 2
     omega = 2*np.pi*freq
  
     print('omega=', omega, 'Hz')
@@ -25,12 +25,14 @@ def proc1(param=0.01,m=128):
     #Pulsewidth
     tau = 0.8 
 
-    
+    # PD signal. Proportional to optical power
+    #Signal = 0
+
+
     for ii in range(m):
 
-        time1 = 0.025*ii-1.6
+        time1 = 0.025*ii-3.2
 
-        aa = 0
             
 
         for jj in range(m):
@@ -42,23 +44,25 @@ def proc1(param=0.01,m=128):
 
             #Et = math.sin(omega * time1)     
 
-     
-            delay1 = 0.025 * jj -0.08
-            delaycol[(jj)] = delay1
-        
+            delay1 = 0.025 * jj -4.8      
 
             td = time1 + delay1
 
-            #Etd = np.exp(1j * omega * time1) * (np.exp(-(time1))**2/1) + param * np.exp(1.j * omega * time1) * np.exp((-(time1-3))**2/(1**2))
-            Etd = Et + np.exp(1j * omega * td) * np.exp(-1.38 * (td/tau)**2)
-            Etdmtrx[(ii),(jj)] = Etd
+            Etd = Et * np.exp(1j * omega * td) * np.exp(-1.38 * (td/tau)**2)                            
+     
 
-            aa = (np.abs(Etd))**2
-           
+            s = 0 
+            for kk in range(m):          
 
-            imcol[(ii)] = aa
-                        
 
-    return tcol, Etcol, delaycol, Etdmtrx, imcol
+                s += Etd
+                
+
+                #Signalcol[(ii)] = Etd
+                Signalcol[(ii)] = s
+
+            #print(Signalcol)
+
+    return tcol, Etcol,Signalcol
 
 

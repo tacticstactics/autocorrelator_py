@@ -3,20 +3,18 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import math
 
 import autocorrelation_interferom_def
 
 param = 0.01
-m = 128
+m = 256
 
-tcol, Etcol, delaycol, Etdmtrx, imcol = autocorrelation_interferom_def.proc1(param,m)
+tcol, Etcol, Signalcol = autocorrelation_interferom_def.proc1(param,m)
 
 
 print('')
 print('autocorrelation_interferom_main.py')
 print('')
-print("Etdmtrx Shape", Etdmtrx.shape)
 
 
 fig = plt.figure(figsize = (10,6), facecolor='lightblue')
@@ -28,7 +26,7 @@ ax4 = fig.add_subplot(2, 2, 4)
 
 ax1.plot(tcol,np.real(Etcol))
 ax2.plot(tcol,np.imag(Etcol))
-ax3.plot(delaycol,imcol)
+ax3.plot(tcol,np.real(Signalcol))
 
 plt.show()
 
