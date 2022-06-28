@@ -1,36 +1,29 @@
 ﻿
-
-
 # autocorrelation_interferom_def.py
 
-import numpy as np
-#import matplotlib.pyplot as plt
 import math
+import numpy as np
 
 
 def proc1(param=0.01,m=128):
 
 
-
-#tcol = np.zeros((m,1)); # Electric field
-
     tcol = np.zeros((m,1)); # time
-    delaycol = np.zeros((m,1)); # difference
+    delaycol = np.zeros((m,1)); # delay
     
     Etcol = np.ones(m, dtype=complex)*2
+
     imcol = np.zeros((m,1)); #% 
-    
-    Etdmtrx = np.zeros((m,m)); #% 
+   
+    Etdmtrx = np.ones((m,m), dtype=complex); #% 
 
     freq = 100
     omega = 2*np.pi*freq
  
-    print('omega=')
-    print(omega)
+    print('omega=', omega, 'Hz')
 
     tau = 0.1
-
-
+    
     for ii in range(m):
 
         time1 = 0.025*ii-1.6
