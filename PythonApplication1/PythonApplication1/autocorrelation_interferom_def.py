@@ -17,41 +17,30 @@ def proc1(param=0.01,m=128):
    
     Etdmtrx = np.ones((m,m), dtype=complex); #% 
 
-    freq = 100
+    freq = 1
     omega = 2*np.pi*freq
  
     print('omega=', omega, 'Hz')
 
-    tau = 0.1
+    #Pulsewidth
+    tau = 0.8 
+
     
     for ii in range(m):
 
         time1 = 0.025*ii-1.6
-        a = 0
-        aa = 0
 
+        aa = 0
             
 
         for jj in range(m):
 
             tcol[(ii)] = time1
+
             Et = np.exp(1j * omega * time1) * np.exp(-1.38 * (time1/tau)**2)
-
-            #Et = math.sin(omega * time1)
-            #Et = np.exp(1j * omega * time1)         
-            
-            
-            #print("Complex")
-            #print(Et)
-            #print("Real")
-            #print(Et.real)
-            #print("Imag")
-            #print(Et.imag)
-            
-            #print(type(Et.real))
-            #print(type(Et.imag))
-
             Etcol[(ii)] = Et
+
+            #Et = math.sin(omega * time1)     
 
      
             delay1 = 0.025 * jj -0.08

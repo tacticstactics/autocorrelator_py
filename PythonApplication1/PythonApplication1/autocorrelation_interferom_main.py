@@ -23,19 +23,15 @@ fig = plt.figure(figsize = (10,6), facecolor='lightblue')
 
 ax1 = fig.add_subplot(2, 2, 1)
 ax2 = fig.add_subplot(2, 2, 2)
+ax3 = fig.add_subplot(2, 2, 3)
+ax4 = fig.add_subplot(2, 2, 4)
 
 ax1.plot(tcol,np.real(Etcol))
-ax2.plot(delaycol,imcol)
+ax2.plot(tcol,np.imag(Etcol))
+ax3.plot(delaycol,imcol)
 
 plt.show()
 
-#fig2 = plt.figure(figsize = (10,6), facecolor='lightblue')
-#ax3 = fig2.add_subplot(2, 2, 1)
-#ax4 = fig2.add_subplot(2, 2, 2)
-
-#plt.show()
-
-#      print("list1=", item1, ", list2=", item2)
     
 
 
