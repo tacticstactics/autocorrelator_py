@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import autocorrelation_interferom_def
 
 param = 0.01
-m = 256
+m = 128
 
 tcol, Etcol, Signalcol = autocorrelation_interferom_def.proc1(param,m)
 
