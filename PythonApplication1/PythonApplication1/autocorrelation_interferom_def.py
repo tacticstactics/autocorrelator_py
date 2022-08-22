@@ -15,7 +15,7 @@ def proc1(param=0.01,m=256):
     Signalcol = np.ones(m, dtype=complex);#*2
 
 
-    freq = 4
+    freq = 8 # Frequency of Carrier wave
     omega = 2*np.pi*freq
  
     print('omega=', omega, 'Hz')
@@ -30,13 +30,13 @@ def proc1(param=0.01,m=256):
     for ii in range(m):
 
 
-        delay1 = 0.025*ii-1.6      
+        delay1 = 0.025*ii-3.2      
 
         s = 0
         
         for jj in range(m):
 
-            time1 = 0.025*jj-1.6
+            time1 = 0.025*jj-3.2
             tcol[(jj)] = time1
             
             Et = np.exp(1j * omega * time1) * np.exp(-1.38 * (time1/tau)**2)
