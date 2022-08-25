@@ -6,10 +6,20 @@ import matplotlib.pyplot as plt
 
 import autocorrelation_interferom_def
 
-param = 0.005
-m = 256
+freq = 8
+# Frequency of Carrier wave
 
-tcol, Etcol, Signalcol = autocorrelation_interferom_def.proc1(param,m)
+pulsewidth = 0.8
+# Pulsewidth
+
+m = 256
+# Number of Sampling
+
+steptime = 0.025
+#step time
+
+
+tcol, Etcol, Signalcol = autocorrelation_interferom_def.proc1(freq,pulsewidth,m,steptime)
 
 
 print('')
@@ -19,17 +29,14 @@ print('')
 
 fig1 = plt.figure(figsize = (10,6), facecolor='lightblue')
 
-ax1 = fig1.add_subplot(2, 2, 1) # Real
-ax2 = fig1.add_subplot(2, 2, 2) # Imaginary
-ax3 = fig1.add_subplot(2, 2, 3) # Power
-ax4 = fig1.add_subplot(2, 2, 4)
+ax1 = fig1.add_subplot(2, 2, 1) # Real part of Interference
+ax2 = fig1.add_subplot(2, 2, 2) # Imaginary part of Interference
+ax3 = fig1.add_subplot(2, 2, 3) # Phase
+ax4 = fig1.add_subplot(2, 2, 4) # Power of Interferogram 
 
 ax1.plot(tcol,np.real(Etcol))
-
 ax2.plot(tcol,np.imag(Etcol))
-
 ax3.plot(tcol,np.angle(Etcol))
-
 ax4.plot(tcol,np.real(Signalcol))
 
 
@@ -37,10 +44,6 @@ ax4.plot(tcol,np.real(Signalcol))
 #bx1 = fig2.plot(tcol,np.real(Signalcol))
 #bx1.xlabel("Delay")
 
+plt.show()  
 
-
-plt.show()
-
-    
-
-
+#End of File

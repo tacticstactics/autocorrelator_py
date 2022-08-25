@@ -3,9 +3,7 @@
 
 import numpy as np
 
-
-def proc1(param=0.01,m=256):
-
+def proc1(freq=8,pulsewidth=0.4,m=256,steptime=0.025):
 
     tcol = np.zeros((m,1)); # time
     
@@ -13,14 +11,10 @@ def proc1(param=0.01,m=256):
        
     Signalcol = np.ones(m, dtype=complex);#*2
 
-
-    freq = 8 # Frequency of Carrier wave
     omega = 2*np.pi*freq
  
     print('omega=', omega, 'Hz')
 
-    #Pulsewidth
-    tau = 0.4 
 
     # PD signal. Proportional to optical power
     #Signal = 0
@@ -28,35 +22,30 @@ def proc1(param=0.01,m=256):
 
     for ii in range(m):
 
-
-        delay1 = 0.025*ii-3.2      
+        delay1 = steptime*ii-0.5*steptime*m   
 
         s = 0
         
         for jj in range(m):
 
-            time1 = 0.025*jj-3.2
+            time1 = steptime*jj-0.5*steptime*m
             tcol[(jj)] = time1
             
-            Et = np.exp(1j * omega * time1) * np.exp(-1.38 * (time1/tau)**2)
+            Et = np.exp(1j * omega * time1) * np.exp(-1.38 * (time1/pulsewidth)**2)
             
             Etcol[(jj)] = Et
             
             #Et = math.sin(omega * time1)     
-            
 
             td = time1 + delay1
 
-            Etd = np.exp(1j * omega * td) * np.exp(-1.38 * (td/tau)**2)                          
-     
+            Etd = np.exp(1j * omega * td) * np.exp(-1.38 * (td/pulsewidth)**2)                          
 
             s += (abs(Et+Etd)**2)**2            
 
               #Signalcol[(ii)] = Etd
             Signalcol[(ii)] = s
 
-                    #print(Signalcol)
-
     return tcol, Etcol,Signalcol
 
-
+#End of File
