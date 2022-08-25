@@ -10,7 +10,6 @@ def proc1(param=0.01,m=256):
     tcol = np.zeros((m,1)); # time
     
     Etcol = np.ones(m, dtype=complex);#*2
-
        
     Signalcol = np.ones(m, dtype=complex);#*2
 
