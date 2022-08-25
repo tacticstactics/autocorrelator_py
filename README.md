@@ -7,8 +7,12 @@ SHG signal was taken as a function of delay.
 
 
 Real part of Real part of Interference
+
 Imaginary part of Interference
+
 Phase
-Power of Interferogram 
+
+Power of Interferogram
+
 
 Requires Numpy
