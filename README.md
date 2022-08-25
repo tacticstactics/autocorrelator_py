@@ -1,5 +1,6 @@
 # autocorrelator_py
-Python Version of Interferometric autocorrelator To simulate optical ultrashort pulses
+Python Version of Interferometric autocorrelator To simulate optical ultrashort pulses.
+
 Requires Numpy
 
 SHG signal was taken as a function of delay.
