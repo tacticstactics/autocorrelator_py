@@ -5,8 +5,7 @@ Requires Numpy
 
 SHG signal was taken as a function of delay.
 
-![Figure_1](https://user-images.githubusercontent.com/30459885/185860788-222584b3-669f-4ed5-8cde-bfb25128e8f7.png)
-
+![Figure_1](https://user-images.githubusercontent.com/30459885/188770255-9c87face-04b8-4dcf-ae3d-3146395bb674.png)
 
 Real part of Electric Vector Interference
 
