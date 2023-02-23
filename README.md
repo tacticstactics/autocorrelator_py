@@ -1,5 +1,5 @@
 # autocorrelator_py
-Python code of Interferometric autocorrelator To simulate optical ultrashort pulses.
+Python code of Interferometric autocorrelator to evaluate ultrashort optical pulses.
 
 Requires Numpy
 
