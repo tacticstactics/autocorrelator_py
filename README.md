@@ -1,4 +1,8 @@
 
+
+https://github.com/user-attachments/assets/1475f4ee-679f-441f-88dc-b3d928c20a25
+
+
 Interferometric autocorrelator to evaluate ultrashort optical pulses.
 Second Harmonic Generation(SHG) signal is measured as a function of delay.
 
