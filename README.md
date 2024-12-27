@@ -1,9 +1,10 @@
 Interferometric autocorrelator to evaluate ultrashort optical pulses.
-Second Harmonic Generation(SHG) signal is measured as a function of delay.
-Real part of Electric Vector Interference
-Imaginary part of Electric Vector Interference
-Phase
-Power of Interferogram
+Second Harmonic Generation(SHG) signal is measured as a function of delay.<br>
+
+Real part of Electric Vector Interference<br>
+Imaginary part of Electric Vector Interference<br>
+Phase<br>
+Power of Interferogram<br>
 
 Pulsewidth Variable
 
